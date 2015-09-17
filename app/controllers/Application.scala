@@ -15,7 +15,7 @@ class Application @Inject() (userDAO: UserDAO, actorSystem:ActorSystem) extends 
 
   def index = Action.async {
     val myID = UUID.randomUUID.toString
-    userDAO.create(User(myID, true, "some@example.com")).map { rows =>
+    userDAO.create(User(myID, None, "some@example.com")).map { rows =>
       Ok(views.html.index(s"row = ${rows}"))
     }
   }

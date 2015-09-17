@@ -46,7 +46,7 @@ class UserDAO @Inject() (config:Config, db:Database) {
     def id = column[String]("ID", O.PrimaryKey)
     def email = column[String]("EMAIL")
 
-    def registered = column[Boolean]("REGISTERED")
+    def registered = column[Option[Boolean]]("REGISTERED")
 
     def * = (id, registered, email) <> (User.tupled, User.unapply)
   }
