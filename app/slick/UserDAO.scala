@@ -2,20 +2,17 @@ package slick
 
 import javax.inject.{Singleton, Inject}
 
-import akka.actor.ActorSystem
 import com.typesafe.config.Config
 import models.User
 
 import scala.concurrent.Future
-import slick.driver.PostgresDriver.api._
+import com.typesafe.slick.driver.oracle.OracleDriver.api._
 
 /**
  *
  */
 @Singleton
 class UserDAO @Inject() (config:Config, db:Database) {
-
-  import slick.driver.PostgresDriver.api._
 
   private val users = TableQuery[Users]
 
@@ -49,6 +46,8 @@ class UserDAO @Inject() (config:Config, db:Database) {
     def id = column[String]("ID", O.PrimaryKey)
     def email = column[String]("EMAIL")
 
-    def * = (id, email) <> (User.tupled, User.unapply)
+    def registered = column[Boolean]("REGISTERED")
+
+    def * = (id, registered, email) <> (User.tupled, User.unapply)
   }
 }

@@ -7,11 +7,14 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
   "com.zaxxer" % "HikariCP" % "2.3.8",
   "com.typesafe.slick" %% "slick" % "3.0.0",
+  "com.typesafe.slick" %% "slick-extensions" % "3.0.0",
   specs2 % Test
 )
+
+
+resolvers += "Typesafe Releases" at "http://repo.typesafe.com/typesafe/maven-releases/"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
