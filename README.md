@@ -5,7 +5,7 @@ This project shows Play 2.5 working with Slick.
 This project is configured to keep all the modules self-contained.  
 
 * Slick is isolated from Play, not using play-slick.  
-* Database migration is done using [Flyway](), not Play Evolutions.
+* Database migration is done using [Flyway](https://flywaydb.org/), not Play Evolutions.
 * Slick's classes are auto-generated following database migration.
 
 ## Database
