@@ -2,7 +2,7 @@ name := """play-slick-3.0"""
 
 version := "1.1-SNAPSHOT"
 
-scalaVersion in ThisBuild := "2.11.7"
+scalaVersion := "2.11.8"
 
 initialize := {
   val _ = initialize.value
