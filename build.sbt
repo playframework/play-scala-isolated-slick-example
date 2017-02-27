@@ -1,28 +1,31 @@
-name := """play-slick-3.0"""
+name := """play-isolated-slick"""
 
 version := "1.1-SNAPSHOT"
 
-scalaVersion := "2.11.8"
-
-initialize := {
-  val _ = initialize.value
-  if (sys.props("java.specification.version") != "1.8")
-    sys.error("Java 8 is required for this project.")
-}
+scalaVersion in ThisBuild := "2.11.8"
 
 lazy val flyway = (project in file("modules/flyway"))
   .enablePlugins(FlywayPlugin)
 
 lazy val api = (project in file("modules/api"))
-  .enablePlugins(Common)
+  .settings(Common.projectSettings)
 
 lazy val slick = (project in file("modules/slick"))
-  .enablePlugins(Common)
+  .settings(Common.projectSettings)
   .aggregate(api)
   .dependsOn(api)
 
-lazy val play = (project in file("modules/play"))
+lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
-  .aggregate(api, slick)
-  .dependsOn(api, slick)
+  .aggregate(slick)
+  .dependsOn(slick)
+
+TwirlKeys.templateImports += "com.example.user.User"
+
+libraryDependencies += "com.h2database" % "h2" % "1.4.192"
+
+// Automatic database migration available in testing
+fork in Test := true
+libraryDependencies += "org.flywaydb" % "flyway-core" % "4.0" % Test
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0-M1" % Test
 
