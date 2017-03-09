@@ -1,4 +1,6 @@
-# Play with Slick 3.1
+[<img src="https://img.shields.io/travis/playframework/play-scala-isolated-slick-example.svg"/>](https://travis-ci.org/playframework/play-scala-isolated-slick-example)
+
+# play-scala-isolated-slick-example
 
 This project shows Play working with Slick.  
 
