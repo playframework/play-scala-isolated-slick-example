@@ -4,7 +4,7 @@ scala:
 jdk:
 - oraclejdk8
 - oraclejdk9
-- oraclejdk10
+- openjdk10
 - oraclejdk11
 script:
   sbt ++$TRAVIS_SCALA_VERSION clean flyway/flywayMigrate slickCodegen compile test
@@ -23,7 +23,7 @@ matrix:
     - scala: 2.11.12
       jdk: oraclejdk9
     - scala: 2.11.12
-      jdk: oraclejdk10
+      jdk: openjdk10
     - scala: 2.11.12
       jdk: oraclejdk11
   allow_failures:

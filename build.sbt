@@ -31,5 +31,5 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 fork in Test := true
 libraryDependencies += "org.flywaydb" % "flyway-core" % "5.1.1"
 libraryDependencies += "com.typesafe.play" %% "play-ahc-ws" % "2.6.15" % Test
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.0-RC1" % Test
 
