@@ -7,13 +7,13 @@ resolvers += "Flyway" at "https://flywaydb.org/repo"
 resolvers += "Flyway" at "https://davidmweber.github.io/flyway-sbt.repo"
 
 // Database migration
-addSbtPlugin("org.flywaydb" % "flyway-sbt" % "4.2.0")
+addSbtPlugin("io.github.davidmweber" % "flyway-sbt" % "5.2.0")
 
 // Slick code generation
 // https://github.com/tototoshi/sbt-slick-codegen
 addSbtPlugin("com.github.tototoshi" % "sbt-slick-codegen" % "1.3.0")
 
-libraryDependencies += "com.h2database" % "h2" % "1.4.196"
+libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 
 // The Play plugin
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.7.0-RC3")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.7.0-RC8")

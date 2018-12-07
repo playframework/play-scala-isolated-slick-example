@@ -2,7 +2,7 @@ import slick.codegen.SourceCodeGenerator
 import slick.{ model => m }
 
 libraryDependencies ++= Seq(
-  "com.zaxxer" % "HikariCP" % "2.7.9",
+  "com.zaxxer" % "HikariCP" % "3.2.0",
   "com.typesafe.slick" %% "slick" % "3.2.3",
   "com.typesafe.slick" %% "slick-hikaricp" % "3.2.3",
   "com.github.tototoshi" %% "slick-joda-mapper" % "2.3.0"
@@ -12,11 +12,10 @@ lazy val databaseUrl = sys.env.getOrElse("DB_DEFAULT_URL", "jdbc:h2:./test")
 lazy val databaseUser = sys.env.getOrElse("DB_DEFAULT_USER", "sa")
 lazy val databasePassword = sys.env.getOrElse("DB_DEFAULT_PASSWORD", "")
 
-slickCodegenSettings
 slickCodegenDatabaseUrl := databaseUrl
 slickCodegenDatabaseUser := databaseUser
 slickCodegenDatabasePassword := databasePassword
-slickCodegenDriver := slick.driver.H2Driver
+slickCodegenDriver := slick.jdbc.H2Profile
 slickCodegenJdbcDriver := "org.h2.Driver"
 slickCodegenOutputPackage := "com.example.user.slick"
 slickCodegenExcludedTables := Seq("schema_version")
